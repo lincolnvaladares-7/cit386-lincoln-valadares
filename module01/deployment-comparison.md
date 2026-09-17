@@ -31,3 +31,6 @@ The customer support system must be accessible from outside the building because
 **What works:** Azure can make the ticketing system available over the Internet without requiring employees to physically access server hardware. Cloud resources can also be adjusted as the business grows, which supports the medium-growth requirement.
 
 **What breaks:** Azure introduces an ongoing operating cost, and the business must monitor resource usage to remain within the $100 monthly budget. The company also depends on its Internet connection to manage and use the cloud-hosted workload.
+## Recommendation
+
+I would choose Microsoft Azure for the customer support and ticketing system. The deciding requirement for my choice is **overnight availability**. The business needs the ticketing system to remain available outside normal working hours, and I do not want its availability to depend on an employee laptop, workstation, or physical PC staying powered on at the office. Azure allows the workload to run in cloud infrastructure while still supporting external access and future growth. The business would need to monitor its Azure configuration and usage carefully to keep the workload within the $100 monthly budget.
