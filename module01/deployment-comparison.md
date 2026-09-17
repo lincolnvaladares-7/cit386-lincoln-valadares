@@ -1,17 +1,33 @@
-# Deployment Comparison
+The customer support system must be accessible from outside the building because employees may need to work with customer tickets remotely. The system must remain available overnight so that support information can be accessed outside normal business hours. I expect medium growth as the business gains customers and employees. Employees do not need physical access to the server hardware. The business can afford a maximum of $100 per month for this workload.
 
-**Student:** Lincoln Guimaraes Valadares  
-**Course:** CIT 386  
-**Module:** Module 1 - Assignment 1.1
+## Deployment Comparison
 
-## Business Scenario
+### 1. VirtualBox on a Laptop
 
-Valadares IT Solutions is a small IT support and consulting business with 10 employees. The company provides computer support, network setup, troubleshooting, and technology consulting for local small businesses. The company has a limited technology budget and needs to keep infrastructure costs predictable while still providing reliable service to its customers.
+**What works:** VirtualBox provides a low-cost way to run the ticketing system in a virtual machine using hardware the business may already own. It is also useful for testing and learning because the virtual machine can be managed separately from the laptop's main operating system.
 
-## Workload
+**What breaks:** The workload depends on one laptop remaining powered on and connected to the network. This makes reliable overnight availability and outside access more difficult. A laptop also provides limited room for growth compared with dedicated infrastructure.
 
-The workload selected for this comparison is a web-based customer support and ticketing system. Employees use the system to create, update, and track customer support requests.
+### 2. Hyper-V on a Workstation
 
-## Workload Requirements
+**What works:** Hyper-V can run the ticketing system as a virtual machine on a Windows workstation and provides better separation between the host computer and the server workload. It can make good use of existing business hardware.
 
-For this section, I will define the workload requirements based on the needs of the business, including external access, overnight availability, future growth, physical hardware access, and the monthly budget.
+**What breaks:** The service still depends on a single workstation and the business's local power and Internet connection. Hardware failure or maintenance on the workstation could make the ticketing system unavailable.
+
+### 3. Proxmox Host
+
+**What works:** Proxmox provides a dedicated virtualization environment that can host the ticketing system and additional virtual machines as the company grows. It provides more flexibility for managing server workloads than running the system on an employee laptop.
+
+**What breaks:** The business must purchase or maintain suitable local server hardware. It is also responsible for power, networking, backups, updates, and hardware failures. Reliable external access requires additional network configuration.
+
+### 4. Physical PC
+
+**What works:** A dedicated physical PC gives the business direct control over the workload and avoids sharing resources with other virtual machines. The business owns and controls the hardware.
+
+**What breaks:** The system is tied directly to one physical computer. Hardware failure could cause downtime, and increasing capacity may require purchasing or replacing components. The company would also be responsible for keeping the machine powered, connected, secured, and maintained.
+
+### 5. Microsoft Azure
+
+**What works:** Azure can make the ticketing system available over the Internet without requiring employees to physically access server hardware. Cloud resources can also be adjusted as the business grows, which supports the medium-growth requirement.
+
+**What breaks:** Azure introduces an ongoing operating cost, and the business must monitor resource usage to remain within the $100 monthly budget. The company also depends on its Internet connection to manage and use the cloud-hosted workload.
